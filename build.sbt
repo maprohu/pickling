@@ -38,7 +38,8 @@ def commonSettings = Seq(
 )
 def noPublish = Seq(
   publish := {},
-  publishLocal := {}
+  publishLocal := {},
+  publishM2 := {}
 )
 
 // Use root project
