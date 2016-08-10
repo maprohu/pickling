@@ -1,7 +1,7 @@
 import Benchmark._ // see project/Benchmark.scala
 import Dependencies._ // see project/Dependencies.scala
 
-val buildVersion = "0.10.2-SNAPSHOT"
+val buildVersion = "0.10.1-java6"
 
 def commonSettings = Seq(
   version in ThisBuild := buildVersion,
@@ -22,7 +22,8 @@ def commonSettings = Seq(
   ),
   resolvers += Resolver.sonatypeRepo("snapshots"),
   resolvers += Resolver.sonatypeRepo("releases"),
-  scalacOptions ++= Seq("-feature"),
+  scalacOptions ++= Seq("-feature", "-target:jvm-1.6"),
+  javacOptions ++= Seq("-source", "1.6", "-target", "1.6"),
   parallelExecution in Test := false, // hello, reflection sync!!
   publishMavenStyle in ThisBuild := true,
   publishArtifact in Test := false,
